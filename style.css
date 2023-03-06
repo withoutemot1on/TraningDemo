@@ -37,10 +37,12 @@ a img{
     padding: 0;
 }
 main {
+    display: flex;
     flex: 1 0 auto;
     background-color: rgb(241, 241, 241);
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .flex-center {
@@ -187,4 +189,17 @@ fieldset > button, label, input {
 img{
     width: 300px;
     height: 300px;
+    margin-left: 25px;
+}
+.img2{
+    display: none;
+}
+
+.xxx{
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+.card{
+    
 }
