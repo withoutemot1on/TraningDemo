@@ -1,6 +1,10 @@
 <?php
 require_once('index.html');
 
+include "config.php";
+include "selectData.php";
+include "selectImages.php";
+error_reporting(E_ALL);
 
 ?>
 
@@ -45,49 +49,14 @@ require_once('index.html');
     <!-- main -->
     <main class = 'main'>
     
-    <?php
+    <div class="card"></div>
 
-    
-
-      $link = mysqli_connect("localhost","root","","grooming");
-      if (!$link) {
-          die('Ошибка соединения:');
-      }
-
-      error_reporting(E_ALL);
-      require_once('C:\Users\user\openserver\domains\TraningDemo\index.php');
-
-      
-      $query = mysqli_query($link,"SELECT * FROM `orders`");
-
-
-
-      // if(isset($_GET['pageno'])){
-      //   $pageno = $_GET['pageno'];
-      // }else{
-      //   $pageno = 1;
-      // }
-
-
-
-
-
-      while ($result = mysqli_fetch_assoc($query)){
-          
-          echo "<div class = 'card'>
-          <img class='img' src ='\images/{$result['foto-before']}' widht=300 height=300>
-          <img class='img2' src ='\images/{$result['foto-after']}' widht=300 height=300>
-
-          <div class = 'xxx'>". $result['timestamp'] ."</div>
-          <div class = 'xxx'>". $result['name'] ."</div>
-          <div class = 'xxx'>". $result['discription-works'] ."</div>
-          </div>";}
-    ?>
     </main>
     <!-- footer -->
     <footer>    
 
     </footer>
+
     <script src="index.js"></script>
 </body>
 </html>

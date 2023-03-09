@@ -1,3 +1,4 @@
+
 let updateButton = document.getElementById('Reg');
 let favDialog = document.getElementById('favDialog');
 let outputBox = document.querySelector('output');
@@ -11,46 +12,42 @@ updateButton.addEventListener('click', function onOpen() {
     alert("The <dialog> API is not supported by this browser");
   }
 });
-// selectEl.addEventListener('change', function onSelect() {
-//   confirmBtn.value = selectEl.value;
-// });
-// favDialog.addEventListener('close', function onClose() {
-//   outputBox.value = favDialog.returnValue + " button clicked - " + (new Date()).toString();
-// });
-
-// Слайдер картинок 
-
-// let slide = document.querySelector('')
 
 
-// slide.addEventListener('mouseover',function(e){
 
-// })
-
-// function hover(i){
-//   i.src = i.database.before
-// }
-// function after(i){
-//   i.src = i.database.after
-// }
-
-let img2 = document.querySelector('.img2')
-document.querySelectorAll('.img').forEach(img => {
-  img.addEventListener('mouseover',function(){
-    this.src = 'images/1-2.jpg'
-    // img.style.display = "none"
-    // img2.style.display = "block" 
+async function showItems() {
+  let image = "";
+  const res = await fetch('selectData.php', {
+    method: "Get",
+    headers: {
+      "Content-Type": "application/json"
+    }
   })
-})
+  const output = await res.json();
 
+  for(let i in output) {
+    console.log(output[i]);
+    console.log(output[i].name);
+    image+= 
+    `<img class='img' src='\images/${output[i][`foto-before`]}'  width="300" heigth="300" 
+    onclick="changeImg(${(output[i][`foto-after`])})">`
+  }
 
-let main = document.querySelector('.main')
-
-
-async function ShowItems(){
-await fetch('index.php').then(response =>{return response.text()}).then(text=>{
-  main.innerHTML += text;
-})
-ShowItems();
+  document.querySelector('.card').innerHTML = image;
 }
-console.log(1);
+
+showItems()
+
+function changeImg(imageAfter) {
+ console.log(imageAfter)
+}
+
+
+
+
+
+
+
+
+
+
